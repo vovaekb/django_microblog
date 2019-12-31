@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block page_content %}
+<div class="col-md-8 offset-md-2">
+    <h1>Микроблог</h1>
+    {% for post in posts %}
+    <small>{{ post.text }}</small><hr/>
+    {% endfor %}
+    <h3>Добавить</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+        {{ form.text }}
+        </div>
+        <button type="submit" class="btn btn-primary">отправить</button>
+    </form>
+</div>
+{% endblock %}
