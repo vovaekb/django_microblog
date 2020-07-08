@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from blog.models import Post
 from blog.forms import PostForm
 
+
 def post_index(request):
     if request.method == "POST":
         form = PostForm(request.POST)
