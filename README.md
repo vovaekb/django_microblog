@@ -1,5 +1,5 @@
 # django_microblog
-Simple anonymous microblog application on Python Django.
+:memo: Simple anonymous microblog application on Python Django.
 
 Features:
 - no registration needed
