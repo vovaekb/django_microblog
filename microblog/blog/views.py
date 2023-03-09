@@ -17,7 +17,7 @@ def post_create(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-            return redirect('')
+            return redirect('post_index')
     else:
         context = {
             'form': form,
