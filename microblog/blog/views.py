@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
 from blog.models import Post
 from blog.forms import PostForm
 
@@ -12,19 +11,18 @@ def post_index(request):
     return render(request, 'blog_index.html', context)
 
 def post_create(request):
+    form = PostForm()
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-            return HttpResponseRedirect('/')
+            return redirect('')
     else:
-        form = PostForm()
-
-    context = {
-        'form': form,
-    }
-    return render(request, 'post_form.html', context)
+        context = {
+            'form': form,
+        }
+        return render(request, 'post_form.html', context)
 
 def post_object(request, pk):
     post = Post.objects.get(id=pk)
