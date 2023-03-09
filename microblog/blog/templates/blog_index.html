@@ -5,13 +5,6 @@
     {% for post in posts %}
     <small>{{ post.text }}</small><hr/>
     {% endfor %}
-    <h3>Добавить</h3>
-    <form method="POST">
-        {% csrf_token %}
-        <div class="form-group">
-        {{ form.text }}
-        </div>
-        <button type="submit" class="btn btn-primary">отправить</button>
-    </form>
+    <a href="{% url 'post_create' %}">Создать запись</a>
 </div>
 {% endblock %}
