@@ -4,6 +4,17 @@ from blog.forms import PostForm
 
 
 def post_index(request):
+    """
+    Display a list of :model:`blog.Post`.
+
+    **Context**
+    ``posts``
+        A list of :model:`blog.Post`.
+
+    **Template:**
+
+    :template:`blog/blog_index.html`
+    """
     posts = Post.objects.all()
     context = {
         'posts': posts
@@ -11,6 +22,17 @@ def post_index(request):
     return render(request, 'blog_index.html', context)
 
 def post_create(request):
+    """
+    Display a form for creating new :model:`blog.Post` on GET request and save :model:`blog.Post` from form data on POST request.
+
+    **Context**
+    ``form``
+        A form :form:`blog.PostForm`.
+
+    **Template:**
+
+    :template:`blog/post_form.html`
+    """
     form = PostForm()
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -25,6 +47,17 @@ def post_create(request):
         return render(request, 'post_form.html', context)
 
 def post_object(request, pk):
+    """
+    Display an individual :model:`blog.Post`.
+
+    **Context**
+    ``posts``
+        A list of :model:`blog.Post`.
+
+    **Template:**
+
+    :template:`blog/post_object.html`
+    """
     post = Post.objects.get(id=pk)
     context = {
         'post': post,
