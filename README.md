@@ -15,3 +15,5 @@ Run the application:
 ```bash
 python manage.py runserver
 ```
+
+Navigate to url http://127.0.0.1:8000/ in browser.
