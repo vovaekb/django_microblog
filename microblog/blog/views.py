@@ -1,9 +1,10 @@
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
 from blog.models import Post
 from blog.forms import PostForm
 
 
-def post_index(request):
+def post_index(request: HttpRequest) -> HttpResponse:
     """
     Display a list of :model:`blog.Post`.
 
@@ -21,7 +22,7 @@ def post_index(request):
     }
     return render(request, 'blog_index.html', context)
 
-def post_create(request):
+def post_create(request: HttpRequest) -> HttpResponse:
     """
     Display a form for creating new :model:`blog.Post` on GET request and save :model:`blog.Post` from form data on POST request.
 
@@ -46,7 +47,7 @@ def post_create(request):
         }
         return render(request, 'post_form.html', context)
 
-def post_object(request, pk):
+def post_object(request: HttpRequest, pk: int) -> HttpResponse:
     """
     Display an individual :model:`blog.Post`.
 
